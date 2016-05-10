@@ -28,7 +28,7 @@ or clone the repo:
 
 ## Use ImageMagick instead of gm
 
-Subclass `gm` to enable ImageMagick
+Subclass `gm` to enable ImageMagick.  
 
 ```js
 var fs = require('fs')
@@ -40,6 +40,14 @@ gm('/path/to/my/img.jpg')
 ...
 ```
 
+*NOTE: Windows users especially may want to override the binary path used by ImageMagick, as it has been renamed from
+`convert.exe` to `magick.exe` on Windows to avoid conflict with native utilities.* 
+
+
+```js
+var gm = require('gm').subClass({imageMagick: true, appPath = "/path/to/your/magick.exe"});
+
+```
 
 ## Basic Usage
 
